@@ -12,6 +12,8 @@
 		5ECCC43F292DC92600251EE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCC43E292DC92600251EE6 /* Assets.xcassets */; };
 		5ECCC442292DC92600251EE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCC441292DC92600251EE6 /* Preview Assets.xcassets */; };
 		5ECCC44A292DCB3F00251EE6 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCC449292DCB3F00251EE6 /* Coffee.swift */; };
+		5ECCC44D292EF97200251EE6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCC44C292EF97200251EE6 /* Home.swift */; };
+		5ECCC451292EFB5800251EE6 /* CoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCC450292EFB5800251EE6 /* CoffeeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		5ECCC43E292DC92600251EE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5ECCC441292DC92600251EE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5ECCC449292DCB3F00251EE6 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		5ECCC44C292EF97200251EE6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		5ECCC450292EFB5800251EE6 /* CoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 		5ECCC439292DC92400251EE6 /* CoffeeAppAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				5ECCC44B292EF96400251EE6 /* Views */,
 				5ECCC448292DCB1A00251EE6 /* Model */,
 				5ECCC43A292DC92400251EE6 /* CoffeeAppAnimationApp.swift */,
 				5ECCC43C292DC92400251EE6 /* ContentView.swift */,
@@ -76,6 +81,15 @@
 				5ECCC449292DCB3F00251EE6 /* Coffee.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5ECCC44B292EF96400251EE6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5ECCC44C292EF97200251EE6 /* Home.swift */,
+				5ECCC450292EFB5800251EE6 /* CoffeeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +164,9 @@
 			files = (
 				5ECCC43D292DC92400251EE6 /* ContentView.swift in Sources */,
 				5ECCC43B292DC92400251EE6 /* CoffeeAppAnimationApp.swift in Sources */,
+				5ECCC44D292EF97200251EE6 /* Home.swift in Sources */,
 				5ECCC44A292DCB3F00251EE6 /* Coffee.swift in Sources */,
+				5ECCC451292EFB5800251EE6 /* CoffeeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
