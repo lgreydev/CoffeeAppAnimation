@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct Home: View {
-
-
-
     var body: some View {
         GeometryReader {
             let size = $0.size
@@ -30,3 +27,5 @@ struct Home_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
