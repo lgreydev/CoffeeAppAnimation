@@ -9,20 +9,26 @@ import SwiftUI
 
 struct CoffeeView: View {
 
-    var coffees = Coffee.all
-    var size = CGSize()
+    var coffee: Coffee
+    var size: CGSize
 
     var body: some View {
         GeometryReader { proxy in
            let size = proxy.size
+
+            Image(coffee.imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: size.width, height: size.height)
         }
+        .frame(height: size.width)
     }
 }
 
 
 
-struct CoffeeView_Previews: PreviewProvider {
-    static var previews: some View {
-        CoffeeView()
-    }
-}
+//struct CoffeeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CoffeeView()
+//    }
+//}

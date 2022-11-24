@@ -13,8 +13,8 @@ struct Home: View {
             let size = $0.size
 
             VStack(spacing: 0) {
-                ForEach(coffee) { coffee in
-                    // DOTO
+                ForEach(Coffee.all) { coffee in
+                    CoffeeView(coffee: coffee, size: size)
                 }
             }
         }
