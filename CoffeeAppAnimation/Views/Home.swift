@@ -8,19 +8,49 @@
 import SwiftUI
 
 struct Home: View {
+    @State var offsetY: CGFloat = 0
+    @State var currentIndex: CGFloat = 0
+
+    private var coffees = Coffee.all
+
     var body: some View {
         GeometryReader {
             let size = $0.size
             let cardSize = size.width
 
             VStack(spacing: 0) {
-                ForEach(Coffee.all) { coffee in
+                ForEach(coffees) { coffee in
                     CoffeeView(coffee: coffee, size: size)
                 }
             }
             .frame(width: size.width)
             .padding(.top, size.height - cardSize)
+            .offset(y: offsetY)
+            .offset(y: -currentIndex * cardSize)
         }
+        .containerShape(Rectangle())
+        .gesture(
+            DragGesture()
+                .onChanged { value in
+                    offsetY = value.translation.height * 0.7
+                }
+                .onEnded { value in
+                    let translation = value.translation.height
+
+                    withAnimation(.easeInOut) {
+                        if translation > 0 {
+                            if currentIndex > 0 && translation > 250 {
+                                currentIndex -= 1
+                            }
+                        } else {
+                            if currentIndex < CGFloat(coffees.count - 1) && -translation > 250 {
+                                currentIndex += 1
+                            }
+                        }
+                        offsetY = .zero
+                    }
+                }
+        )
         .preferredColorScheme(.light)
     }
 }
