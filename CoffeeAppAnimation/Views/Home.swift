@@ -70,12 +70,13 @@ struct CoffeeView: View {
             let offset = proxy.frame(in: .named("SCROLL")).minY - (size.height - cardSize)
             let scale = offset <= 0 ? (offset / maxCardsDisplaySize) : 0
             let reducedScale = 1 + scale
+            let currentCardScale = offset / cardSize
 
             Image(coffee.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: _size.width, height: _size.height)
-                .scaleEffect(reducedScale < 0 ? 0.001 : reducedScale, anchor: .center)
+                .scaleEffect(reducedScale < 0 ? 0.001 : reducedScale, anchor: .init(x: 0.5, y: 1 - (currentCardScale / 2)))
 
             Text("\(offset)")
         }
