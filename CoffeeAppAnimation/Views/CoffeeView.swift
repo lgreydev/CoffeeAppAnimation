@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/*
 struct CoffeeView: View {
 
     var coffee: Coffee
@@ -24,7 +25,7 @@ struct CoffeeView: View {
         .frame(height: size.width)
     }
 }
-
+*/
 
 
 //struct CoffeeView_Previews: PreviewProvider {

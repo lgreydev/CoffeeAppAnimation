@@ -28,6 +28,7 @@ struct Home: View {
             .offset(y: offsetY)
             .offset(y: -currentIndex * cardSize)
         }
+        .coordinateSpace(name: "SCROLL")
         .containerShape(Rectangle())
         .gesture(
             DragGesture()
@@ -55,10 +56,36 @@ struct Home: View {
     }
 }
 
+struct CoffeeView: View {
+
+    var coffee: Coffee
+    var size: CGSize
+
+    var body: some View {
+        let cardSize = size.width
+        let maxCardsDisplaySize = size.width * 3
+
+        GeometryReader { proxy in
+            let _size = proxy.size
+            let offset = proxy.frame(in: .named("SCROLL")).minY - (size.height - cardSize)
+            let scale = offset <= 0 ? (offset / maxCardsDisplaySize) : 0
+            let reducedScale = 1 + scale
+            let currentCardScale = offset / cardSize
+
+            Image(coffee.imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: _size.width, height: _size.height)
+                .scaleEffect(reducedScale < 0 ? 0.001 : reducedScale, anchor: .init(x: 0.5, y: 1 - (currentCardScale / 2)))
+
+            Text("\(offset)")
+        }
+        .frame(height: size.width)
+    }
+}
+
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
-
