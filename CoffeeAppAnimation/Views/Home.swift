@@ -55,10 +55,29 @@ struct Home: View {
     }
 }
 
+struct CoffeeView: View {
+
+    var coffee: Coffee
+    var size: CGSize
+
+    var body: some View {
+        let cardSize = size.width
+        let maxCardsDisplaySize = size.width * 3
+
+        GeometryReader { proxy in
+            let size = proxy.size
+
+            Image(coffee.imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: size.width, height: size.height)
+        }
+        .frame(height: size.width)
+    }
+}
+
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
-
