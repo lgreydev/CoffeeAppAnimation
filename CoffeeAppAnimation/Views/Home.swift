@@ -18,6 +18,8 @@ struct Home: View {
             let size = $0.size
             let cardSize = size.width
 
+            HeaderView()
+
             LinearGradient(colors: [
                 .clear,
                 Color.brown.opacity(0.2),
@@ -66,6 +68,30 @@ struct Home: View {
     }
 }
 
+struct HeaderView: View {
+    var body: some View {
+        HStack {
+            Button {} label: {
+                Image(systemName: "chevron.left")
+                    .font(.title.bold())
+                    .foregroundColor(.black)
+            }
+
+            Spacer()
+
+            Button {} label: {
+                Image(systemName: "cart.fill")
+                    .resizable()
+                    .renderingMode(.template)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(.black)
+            }
+        }
+        .padding(25)
+    }
+}
+
 struct CoffeeView: View {
 
     var coffee: Coffee
@@ -94,6 +120,11 @@ struct CoffeeView: View {
         .frame(height: size.width)
     }
 }
+
+
+
+
+
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
