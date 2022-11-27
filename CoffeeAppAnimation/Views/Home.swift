@@ -18,6 +18,16 @@ struct Home: View {
             let size = $0.size
             let cardSize = size.width
 
+            LinearGradient(colors: [
+                .clear,
+                Color.brown.opacity(0.2),
+                Color.brown.opacity(0.45),
+                Color.brown
+            ], startPoint: .top, endPoint: .bottom)
+            .frame(height: 300)
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .ignoresSafeArea()
+
             VStack(spacing: 0) {
                 ForEach(coffees) { coffee in
                     CoffeeView(coffee: coffee, size: size)
@@ -80,8 +90,6 @@ struct CoffeeView: View {
                 .scaleEffect(offset > 0 ? 1 + currentCardScale : 1, anchor: .top)
                 .offset(y: offset > 0 ? currentCardScale * 200 : 0)
                 .offset(y: currentCardScale * -130)
-
-            Text("\(offset)")
         }
         .frame(height: size.width)
     }
