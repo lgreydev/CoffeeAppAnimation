@@ -18,6 +18,18 @@ struct Home: View {
             let size = $0.size
             let cardSize = size.width
 
+            HeaderView()
+
+            LinearGradient(colors: [
+                .clear,
+                Color.brown.opacity(0.2),
+                Color.brown.opacity(0.45),
+                Color.brown
+            ], startPoint: .top, endPoint: .bottom)
+            .frame(height: 300)
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .ignoresSafeArea()
+
             VStack(spacing: 0) {
                 ForEach(coffees) { coffee in
                     CoffeeView(coffee: coffee, size: size)
@@ -56,6 +68,30 @@ struct Home: View {
     }
 }
 
+struct HeaderView: View {
+    var body: some View {
+        HStack {
+            Button {} label: {
+                Image(systemName: "chevron.left")
+                    .font(.title.bold())
+                    .foregroundColor(.black)
+            }
+
+            Spacer()
+
+            Button {} label: {
+                Image(systemName: "cart.fill")
+                    .resizable()
+                    .renderingMode(.template)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(.black)
+            }
+        }
+        .padding(25)
+    }
+}
+
 struct CoffeeView: View {
 
     var coffee: Coffee
@@ -63,7 +99,7 @@ struct CoffeeView: View {
 
     var body: some View {
         let cardSize = size.width
-        let maxCardsDisplaySize = size.width * 3
+        let maxCardsDisplaySize = size.width * 4
 
         GeometryReader { proxy in
             let _size = proxy.size
@@ -77,12 +113,18 @@ struct CoffeeView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: _size.width, height: _size.height)
                 .scaleEffect(reducedScale < 0 ? 0.001 : reducedScale, anchor: .init(x: 0.5, y: 1 - (currentCardScale / 2)))
-
-            Text("\(offset)")
+                .scaleEffect(offset > 0 ? 1 + currentCardScale : 1, anchor: .top)
+                .offset(y: offset > 0 ? currentCardScale * 200 : 0)
+                .offset(y: currentCardScale * -130)
         }
         .frame(height: size.width)
     }
 }
+
+
+
+
+
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
