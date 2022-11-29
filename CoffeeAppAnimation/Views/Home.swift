@@ -16,9 +16,9 @@ struct Home: View {
     var body: some View {
         GeometryReader {
             let size = $0.size
-            let cardSize = size.width
+            let cardSize = size.width * 0.8
 
-            HeaderView()
+            HeaderView(items: coffees, index: currentIndex)
 
             LinearGradient(colors: [
                 .clear,
@@ -68,58 +68,7 @@ struct Home: View {
     }
 }
 
-struct HeaderView: View {
-    var body: some View {
-        HStack {
-            Button {} label: {
-                Image(systemName: "chevron.left")
-                    .font(.title.bold())
-                    .foregroundColor(.black)
-            }
 
-            Spacer()
-
-            Button {} label: {
-                Image(systemName: "cart.fill")
-                    .resizable()
-                    .renderingMode(.template)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
-                    .foregroundColor(.black)
-            }
-        }
-        .padding(25)
-    }
-}
-
-struct CoffeeView: View {
-
-    var coffee: Coffee
-    var size: CGSize
-
-    var body: some View {
-        let cardSize = size.width
-        let maxCardsDisplaySize = size.width * 4
-
-        GeometryReader { proxy in
-            let _size = proxy.size
-            let offset = proxy.frame(in: .named("SCROLL")).minY - (size.height - cardSize)
-            let scale = offset <= 0 ? (offset / maxCardsDisplaySize) : 0
-            let reducedScale = 1 + scale
-            let currentCardScale = offset / cardSize
-
-            Image(coffee.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: _size.width, height: _size.height)
-                .scaleEffect(reducedScale < 0 ? 0.001 : reducedScale, anchor: .init(x: 0.5, y: 1 - (currentCardScale / 2)))
-                .scaleEffect(offset > 0 ? 1 + currentCardScale : 1, anchor: .top)
-                .offset(y: offset > 0 ? currentCardScale * 200 : 0)
-                .offset(y: currentCardScale * -130)
-        }
-        .frame(height: size.width)
-    }
-}
 
 
 
