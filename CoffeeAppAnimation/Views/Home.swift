@@ -16,7 +16,7 @@ struct Home: View {
     var body: some View {
         GeometryReader {
             let size = $0.size
-            let cardSize = size.width
+            let cardSize = size.width * 0.8
 
             HeaderView(items: coffees, index: currentIndex)
 
@@ -137,7 +137,7 @@ struct CoffeeView: View {
     var size: CGSize
 
     var body: some View {
-        let cardSize = size.width
+        let cardSize = size.width * 0.9
         let maxCardsDisplaySize = size.width * 4
 
         GeometryReader { proxy in
@@ -156,7 +156,7 @@ struct CoffeeView: View {
                 .offset(y: offset > 0 ? currentCardScale * 200 : 0)
                 .offset(y: currentCardScale * -130)
         }
-        .frame(height: size.width)
+        .frame(height: cardSize)
     }
 }
 
