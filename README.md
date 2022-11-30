@@ -1,8 +1,6 @@
 # Coffee Animation
 
-
-<img src="https://github.com/lgreydev/CoffeeAppAnimation/blob/main/Screenshots/image_001" width="250"><img src="https://github.com/lgreydev/CoffeeAppAnimation/blob/main/Screenshots/image_002" width="250"><img src="https://github.com/lgreydev/CoffeeAppAnimation/blob/main/Screenshots/image_003" width="250">
-
+<img src="https://github.com/lgreydev/CoffeeAppAnimation/blob/main/Screenshots/image_001.png" width="250"><img src="https://github.com/lgreydev/CoffeeAppAnimation/blob/main/Screenshots/image_002.png" width="250"><img src="https://github.com/lgreydev/CoffeeAppAnimation/blob/main/Screenshots/image_003.png" width="250">
 
 ### 🛡️ License
 
