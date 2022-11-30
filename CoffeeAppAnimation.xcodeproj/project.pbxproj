@@ -27,6 +27,8 @@
 		5ECCC44C292EF97200251EE6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		5ECCC450292EFB5800251EE6 /* CoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeView.swift; sourceTree = "<group>"; };
 		5ECCC452293590F300251EE6 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		5ECCC4542936DFE600251EE6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5ECCC4552936E02500251EE6 /* License.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = License.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,8 @@
 		5ECCC42E292DC92400251EE6 = {
 			isa = PBXGroup;
 			children = (
+				5ECCC4552936E02500251EE6 /* License.md */,
+				5ECCC4542936DFE600251EE6 /* README.md */,
 				5ECCC439292DC92400251EE6 /* CoffeeAppAnimation */,
 				5ECCC438292DC92400251EE6 /* Products */,
 			);
